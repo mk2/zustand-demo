@@ -9,17 +9,14 @@ const Home = () => {
     state.addMemo,
     state.modifyMemo,
   ]);
-  const [
-    editingId,
-    setEditingId,
-    editingInput,
-    setEditingInput,
-  ] = useHomeStore((state) => [
-    state.editingId,
-    state.setEditingId,
-    state.editingInput,
-    state.setEditingInput,
-  ]);
+  const [editingId, setEditingId, editingInput, setEditingInput] = useHomeStore(
+    (state) => [
+      state.editingId,
+      state.setEditingId,
+      state.editingInput,
+      state.setEditingInput,
+    ]
+  );
 
   const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
     setEditingInput(e.target.value);
@@ -36,14 +33,25 @@ const Home = () => {
   };
 
   return (
-    <div className="App">
-      <div style={{ display: "flex" }}>
-        <button className="rounded-full py-3 px-6 bg-gray-50" onClick={onClickAddButton}>
-          {editingId ? "編集" : "追加"}
-        </button>
-        <input onChange={onChangeInput} type="text" value={editingInput} />
+    <div className="App py-2 px-2 rounded">
+      <div className="py-3 px-6">
+        <div className="flex">
+          <input
+            className="form-input rounded-full border-2"
+            onChange={onChangeInput}
+            type="text"
+            value={editingInput}
+          />
+          <button
+            className="rounded-full py-2 px-6 bg-indigo-200 mx-2"
+            onClick={onClickAddButton}>
+            {editingId ? "編集" : "追加"}
+          </button>
+        </div>
       </div>
-      <MemoList />
+      <div className="my-6 mx-6">
+        <MemoList />
+      </div>
     </div>
   );
 };

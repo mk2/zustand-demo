@@ -21,19 +21,23 @@ const MemoList = () => {
   };
 
   return (
-    <ul style={{ listStyle: "none" }}>
+    <ul className="list-none grid grid-cols-12 gap-4 items-center place-items-start">
       {memoList.map((memo) => (
-        <div
-          style={{
-            display: "flex",
-            width: "500px",
-            justifyContent: "flex-start",
-          }}>
-          <button onClick={onClickDeleteButton(memo.id)}>-</button>
-          <li style={{ textAlign: "start", marginLeft: 10 }}>{memo.content}</li>
-          <span style={{ flexGrow: 2 }} />
-          <button onClick={onClickEditButton(memo)}>Edit</button>
-        </div>
+        <>
+          <button
+            className="form-input rounded-full border-2 bg-red-50"
+            onClick={onClickDeleteButton(memo.id)}>
+            del
+          </button>
+          <li className="col-span-10 mx-5">
+            <span className="text-2xl font-sans">{memo.content}</span>
+          </li>
+          <button
+            className="form-input rounded-full border-2"
+            onClick={onClickEditButton(memo)}>
+            Edit
+          </button>
+        </>
       ))}
     </ul>
   );
