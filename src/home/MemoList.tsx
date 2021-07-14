@@ -25,18 +25,21 @@ const MemoList = () => {
       {memoList.map((memo) => (
         <>
           <button
-            className="form-input rounded-full border-2 bg-red-50"
+            className="form-input border-2 bg-black text-white rounded-md"
             onClick={onClickDeleteButton(memo.id)}>
             del
           </button>
-          <li className="col-span-10 mx-5">
-            <span className="text-2xl font-sans">{memo.content}</span>
-          </li>
           <button
-            className="form-input rounded-full border-2"
+            className="form-input border-2 rounded-md bg-white"
             onClick={onClickEditButton(memo)}>
             Edit
           </button>
+          <li className="col-span-9 mx-5">
+            <span className="text-2xl font-sans">{memo.content}</span>
+          </li>
+          <input
+            type="checkbox"
+            className="form-checkbox checked:bg-indigo-600 checked:border-transparent h-5 w-5 text-gray-600 rounded-md"></input>
         </>
       ))}
     </ul>

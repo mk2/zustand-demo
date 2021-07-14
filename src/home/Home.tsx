@@ -33,17 +33,17 @@ const Home = () => {
   };
 
   return (
-    <div className="App py-2 px-2 rounded">
+    <div className="App py-2 px-2">
       <div className="py-3 px-6">
         <div className="flex">
           <input
-            className="form-input rounded-full border-2"
+            className="form-input border-2 rounded-md"
             onChange={onChangeInput}
             type="text"
             value={editingInput}
           />
           <button
-            className="rounded-full py-2 px-6 bg-indigo-200 mx-2"
+            className="py-2 px-6 bg-indigo-100 text-indigo-700 font-semibold mx-2 rounded-md"
             onClick={onClickAddButton}>
             {editingId ? "編集" : "追加"}
           </button>
